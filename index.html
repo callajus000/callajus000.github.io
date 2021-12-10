@@ -334,7 +334,7 @@ $(document).ready(function () {
 <h1>Modeling:</h1>
 <p>Our problem was a classification problem. The task was to assign the patients into one of two categories, developing heart problems or not developing heart problems, based on the variables given.</p>
 <p><img src="data10.jpg" /></p>
-<p>In order to pursue the classification goal, our group decided on using a random forest model, which is a collection of decision tree models. Decision trees work by splitting the predictor feature space into sections. At each split, the model makes a decision in order to make the best model classes. A random forest uses a random set of features at each split to decorrelate the features with each other. It creates multiple overgrown trees and uses bootstrapping to help create a low variance model. We chose the random forest model over typical decision trees because regular decision trees are trained to take the best split to maximize the entropy gain(greedy split). Trees might also not be affected by other, weaker predictor features because those features were ignored in favor of other more impactful features. We would like to avoid this, as we want all features to be taken into account. Since we introduced so much bias into our model we are hoping to achieve model accuracy at the cost of model variance increasing.</p>
+<p>In order to pursue the classification goal, our group decided on using a random forest model, which is a collection of decision tree models. Decision trees work by splitting the predictor feature space into sections. At each split, the model makes a decision in order to make the best model classes. This can lead to problems because these models heavily lean towards only certain features and neglect others. To combat this, we used a random forest. This model creates multiple overgrown trees and uses bootstrapping to help create a low variance model. We chose the random forest model over typical decision trees because regular decision trees are trained to take the best split to maximize the entropy gain(greedy split). A random forest uses a random set of features at each split to decorrelate the features with each other allowing us to account for all predictor features. For the parameters for our model we set up the model to take only 3 predictor features out of our subset of 8 predictor features for each tree. We decided to not prune any of our bootstrapped trees to allow us to limit the amount of bias we introduce into the model, which we further explain in limitations.</p>
 </div>
 <div id="discussion" class="section level1">
 <h1>Discussion:</h1>
@@ -348,15 +348,15 @@ $(document).ready(function () {
 </div>
 <div id="conclusion" class="section level1">
 <h1>Conclusion:</h1>
-<p>It is important to be knowledgeable in the relevant subject when making modelling decisions. Knowing what each variable means and how they interact is key to making usable data. Due to our lack of experience in the field, we chose a model that took choosing factors out of our hand, the random forest model. However, while analyzing the results, it must be noted that relying on only one method is not the most reliable method. The model exists in order to give us information to make decisions with, not to make the decisions for us. Our main finding is that the slope of the ST segment and the type of chest pain are the most important predictors of heart problems, out of the variables given. Further studies of these variables would be necessary in order to determine if our treatment of them was correct, and to what degree they actually affect the populace.</p>
+<p>It is important to be knowledgeable in the relevant subject when making modeling decisions. Knowing what each variable means and how they interact is key to making usable data. Due to our lack of experience in the field, we chose a model that took choosing factors out of our hand, the random forest model. However, while analyzing the results, it must be noted that relying on only one method is not the most reliable method. The model exists in order to give us information to make decisions with, not to make the decisions for us. Our main finding is that the slope of the ST segment and the type of chest pain are the most important predictors of heart problems, out of the variables given. Further studies of these variables would be necessary in order to determine if our treatment of them was correct, and to what degree they actually affect the populace.</p>
 </div>
 <div id="acknowledgement" class="section level1">
 <h1>Acknowledgement:</h1>
-<p>Justin Callahan - Created and presented the data slides on the presentation, compiled the information from the presentation into the essay, and formatted it.</p>
-<p>Pablo Arrizon -</p>
-<p>Jennice Herrera -</p>
+<p>Justin Callahan - Created and presented the data slides on the presentation, compiled the information from the presentation into the essay, and formatted it. Created website.</p>
+<p>Pedro Arrizon - Created statistical method models, interpreted and discussed models within group, guided presentation and Final Report.</p>
+<p>Jennice Herrera - Helped discuss medical background and terminology, helped guide feature selection within the models using domain experience.</p>
 <p>Doeun Lee - Interpreted the resulting graphs, created and presented the result and limitations slides on the presentation, and fixed the final report.</p>
-<p>Abhinav Mugunda -</p>
+<p>Abhinav Mugunda - Proof read the final report, provided input into project decisions, injected levity into proceedings</p>
 </div>
 <div id="bibliography" class="section level1">
 <h1>Bibliography:</h1>
