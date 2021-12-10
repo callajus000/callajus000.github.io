@@ -22,8 +22,6 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -287,28 +285,10 @@ $(document).ready(function () {
         <li>
   <a href="index.html">Home</a>
 </li>
-<li>
-  <a href="portfolio.html">Portfolio</a>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="mailto:&lt;justinbcallahan@gmail.com&gt;">
-    <span class="fas fa-envelope fa-lg"></span>
-     
-  </a>
-</li>
-<li>
-  <a href="http://github.com/callajus000/">
-    <span class="fas fa-github fa-lg"></span>
-     
-  </a>
-</li>
-<li>
-  <a href="https://www.linkedin.com/in/justin-callahan-72b38b150">
-    <span class="fas fa-linkedin fa-lg"></span>
-     
-  </a>
+  <a href="https://github.com/P-Arrizon/SDS322E_Project.github.io"></a>
 </li>
       </ul>
     </div><!--/.nav-collapse -->
@@ -323,23 +303,68 @@ $(document).ready(function () {
 </div>
 
 
-<p><img src="avatar.jpg" style=width:40% class="img-circle"></p>
 <p><br></p>
-<div id="welcome-justin-callahan." class="section level1">
-<h1>Welcome! Justin Callahan.</h1>
+<div id="predicting-heart-failure-with-various-biological-markers" class="section level1">
+<h1>Predicting Heart Failure with Various Biological Markers</h1>
+<div id="by-justin-callahan-pedro-arrizon-jennice-herrera-doeun-lee-and-abhinav-mugunda" class="section level3">
+<h3>By: Justin Callahan, Pedro Arrizon, Jennice Herrera, Doeun Lee, and Abhinav Mugunda</h3>
+</div>
+</div>
+<div id="introduction" class="section level1">
+<h1>Introduction:</h1>
+<p>Heart failure is a progressive condition in which the heart is unable to pump enough blood to meet the body’s oxygen demand. Cardiovascular disease causes 17.9 million deaths per year, making it the leading cause of death globally. Additionally, heart disease cost the United States $363 billion in 2016 due to health care services, medicine, and lost productivity. The motivation behind this project is to improve the accuracy of heart diagnoses. Statistical models can bring a lot of value to the field of health care, and cardiology specifically. Their use could allow health professionals to more accurately select which health factors to prioritize when diagnosing patients. By understanding the impact that various biological markers have on an individual’s likelihood of developing heart failure, preventative measures can be more effective.</p>
 <p></br></p>
-<div id="i-am-a-senior-finance-major-with-a-minor-in-mis-at-the-university-of-texas" class="section level5">
-<h5>I am a senior finance major with a minor in MIS at The University of Texas</h5>
 </div>
-<div id="i-like-to-play-soccer-and-eat-good-food-in-my-freetime." class="section level5">
-<h5>I like to play soccer and eat good food in my freetime.</h5>
+<div id="data" class="section level1">
+<h1>Data:</h1>
+<p>The dataset our group used is one that was downloaded from Kaggle. It contains real data documenting factors related to heart health compiled from datasets put out by hospitals in Virginia, Cleveland, Hungary, and Switzerland. There were originally 1,190 observations in the dataset, but 272 duplicates were removed, leaving 918 observations in the final data we analyzed. The data needed several transformations in order to make it easier to analyze. Sex was turned into a binary variable, where 1 is male and 0 is female. ChestPainType was turned into a binary variable, where asymptomatic is 1, and the three types of symptomatic pain were 0. ST_Slope was turned into a binary variable where 1 is flat, and 0 is sloped. Apart from turning some categorical variables into binary variables, the data did not need to be cleaned, as the data set provided on Kaggle had already been cleaned.</p>
+<p><img src="data1.jpg" /></p>
+<p>The figure above shows the first five rows of data after the transformations. The first eleven variables are the predictor variables, while the last is the target variable. Most of the variables are fairly self explanatory, however FastingBS stands for fasting blood sugar, and it is a binary variable where it is 1 if over 120 mg/dl.</p>
 </div>
-<div id="i-was-born-in-bermuda-but-grew-up-in-connecticut-and-houston." class="section level5">
-<h5>I was born in Bermuda, but grew up in Connecticut and Houston.</h5>
+<div id="exploratory-analysis" class="section level1">
+<h1>Exploratory Analysis:</h1>
+<p><img src="data2.jpg" /></p>
+<p>The mean age in this data is 53.5, as opposed to 29.6 in the world or 38.5 in the United States. The average resting blood pressure is 132.4, as opposed to ~125 for the average 53 year old. It is also important to note that 55% of people in this dataset developed heart disease. Overall, the people in this study are older and have more health risk factors than the general populace.</p>
+<p><img src="data3.jpg" /> <img src="data4.jpg" /> <img src="data5.jpg" /> <img src="data6.jpg" /> <img src="data7.jpg" /> <img src="data8.jpg" /></p>
+<p>These charts show some of the main trends and possible predictors of heart disease in the dataset. The effect of asymptomatic pain against the symptomatic ChestPainType categories can be seen above. ST_Slope also has a large difference in Flat against an upward sloped line. Another interesting variable we noted was whether the patient experienced Exercise Angina. While there were a number of patients with heart disease who didn’t experience it, an overwhelming majority of people who did experience angina ended up having some kind of heart disease. Looking at these differences improved our ability to transform the variables accurately in order to make a cleaner model.</p>
+<p><img src="data9.jpg" /> Inspecting the data before plugging it into the model is one of the most important parts of data science. This allows us to see possible trends, relationships, or any clear errors that may exist in the data. For example, we can see how variables such as Age and MaxHR are normally distributed, but the Oldpeak variable is skewed right, which needs to be taken into account.</p>
+<p>Hypotheses: Based off of the charts above, we predict that a sloped ST segment will have high influence in the patient being classified into the heart problem bin. We also predict that high resting blood pressure will have a strong predictive effect on heart problems.</p>
 </div>
-<div id="i-dont-have-any-data-related-projects-either-but-if-i-did-you-could-find-them-here" class="section level5">
-<h5>I don’t have any data-related projects either, but if I did you could find them <a href="/portfolio">here</a>!</h5>
-<hr />
+<div id="modeling" class="section level1">
+<h1>Modeling:</h1>
+<p>Our problem was a classification problem. The task was to assign the patients into one of two categories, developing heart problems or not developing heart problems, based on the variables given.</p>
+<p><img src="data10.jpg" /></p>
+<p>In order to pursue the classification goal, our group decided on using a random forest model, which is a collection of decision tree models. Decision trees work by splitting the predictor feature space into sections. At each split, the model makes a decision in order to make the best model classes. A random forest uses a random set of features at each split to decorrelate the features with each other. It creates multiple overgrown trees and uses bootstrapping to help create a low variance model. We chose the random forest model over typical decision trees because regular decision trees are trained to take the best split to maximize the entropy gain(greedy split). Trees might also not be affected by other, weaker predictor features because those features were ignored in favor of other more impactful features. We would like to avoid this, as we want all features to be taken into account. Since we introduced so much bias into our model we are hoping to achieve model accuracy at the cost of model variance increasing.</p>
+</div>
+<div id="discussion" class="section level1">
+<h1>Discussion:</h1>
+<p><img src="data11.jpg" /></p>
+<p>Our test data was 230 out of the 918 observations. Of these, there were 200 correct predictions, 21 type 1 errors, and 9 type 2 errors. The accuracy score of .8696 is greater than .7, so this test seems to be successful. On the matrix above, 0 represents negative and 1 represents positive.</p>
+<p><img src="data12.jpg" /></p>
+<p>Interpreting from the shap value plot, ST_slope and chest pain type were the most important predictors of heart failure, however these two variables were the ones that we manually changed into binary variables. Max Heart Rate and Age were also fairly significant predictors.</p>
+<p>Limitations:</p>
+<p>For the analysis, we needed to assume independence and randomness of the data collected even though those conditions were not met. Firstly, the data was not randomly chosen. The data had to be collected at the patients consent from the hospitals. This introduces selection bias, as certain patients would be more likely to share their information than others. Secondly, the data was not independent as it was collected from hospitals. People from hospitals often suffer from other complications or are sick in general, so the data may not be representative of the general population. One example of this can be seen in there being a much higher proportion of males in the dataset than in the general population. Another issue with translating the data from the survey to the general population is that the data was only collected from select countries in Europe and select states in the United States. This must be noted before attempting to extrapolate to the rest of the world, as each country has differing foods, traditions, and lifestyles. This lends itself to different health levels in each country, including the frequency of heart problems. When building any model it’s important to take into consideration how much of your own bias you are adding into the model and how it affects it. Changing multiple categorical variables into binary values introduces a lot of bias into the data in order to improve the accuracy of the model. Our lack of medical expertise worked against us here, as we could not confidently assert that these changes were non-material. Because of the bias that was introduced, there is lots of model variance on other potential data sets. In order to progress to future studies, it would be important to bring in someone who is knowledgeable in the field, and could provide insight to help manipulate the predictor features more accurately.</p>
+<p><img src="data13.jpg" /> Another possible limitation is that the random forest model is hard to understand up front, and requires interpretation before delivering the results to other groups. It is important to understand the purpose which the model will serve. If the model is too hard for doctors or hospital personnel to understand, they may make life-altering decisions based on incomplete or misleading data.</p>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion:</h1>
+<p>It is important to be knowledgeable in the relevant subject when making modelling decisions. Knowing what each variable means and how they interact is key to making usable data. Due to our lack of experience in the field, we chose a model that took choosing factors out of our hand, the random forest model. However, while analyzing the results, it must be noted that relying on only one method is not the most reliable method. The model exists in order to give us information to make decisions with, not to make the decisions for us. Our main finding is that the slope of the ST segment and the type of chest pain are the most important predictors of heart problems, out of the variables given. Further studies of these variables would be necessary in order to determine if our treatment of them was correct, and to what degree they actually affect the populace.</p>
+</div>
+<div id="acknowledgement" class="section level1">
+<h1>Acknowledgement:</h1>
+<p>Justin Callahan - Created and presented the data slides on the presentation, compiled the information from the presentation into the essay, and formatted it.</p>
+<p>Pablo Arrizon -</p>
+<p>Jennice Herrera -</p>
+<p>Doeun Lee - Interpreted the resulting graphs, created and presented the result and limitations slides on the presentation, and fixed the final report.</p>
+<p>Abhinav Mugunda -</p>
+</div>
+<div id="bibliography" class="section level1">
+<h1>Bibliography:</h1>
+<p>Divya Jacob, Pharm. D. “What Is the Normal Blood Pressure Range? Chart, Low, Normal &amp; High.” MedicineNet, MedicineNet, 4 Jan. 2021, <a href="https://www.medicinenet.com/blood_pressure_chart_reading_by_age/article.htm" class="uri">https://www.medicinenet.com/blood_pressure_chart_reading_by_age/article.htm</a>.</p>
+<p>Fedesoriano. “Heart Failure Prediction Dataset.” Kaggle, 10 Sept. 2021, <a href="https://www.kaggle.com/fedesoriano/heart-failure-prediction" class="uri">https://www.kaggle.com/fedesoriano/heart-failure-prediction</a>.</p>
+<p>“Heart Disease Facts.” Centers for Disease Control and Prevention, Centers for Disease Control and Prevention, 27 Sept. 2021, <a href="https://www.cdc.gov/heartdisease/facts.htm" class="uri">https://www.cdc.gov/heartdisease/facts.htm</a>.</p>
+<div id="silipo-rosaria.-from-a-single-decision-tree-to-a-random-forest.-medium-towards-data-science-8-oct.-2019-httpstowardsdatascience.comfrom-a-single-decision-tree-to-a-random-forest-b9523be65147." class="section level2">
+<h2>Silipo, Rosaria. “From a Single Decision Tree to a Random Forest.” Medium, Towards Data Science, 8 Oct. 2019, <a href="https://towardsdatascience.com/from-a-single-decision-tree-to-a-random-forest-b9523be65147" class="uri">https://towardsdatascience.com/from-a-single-decision-tree-to-a-random-forest-b9523be65147</a>.</h2>
 </div>
 </div>
 
